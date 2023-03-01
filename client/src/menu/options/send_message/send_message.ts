@@ -1,6 +1,6 @@
-import { sendMessageToServer } from "../../../api/send_message_to_server.mjs";
-import { states } from "../../../states/states.mjs";
-import { clear, print, printNewLine, prompt } from "../../../ui/console.mjs";
+import { sendMessageToServer } from "../../../api/send_message_to_server";
+import { States } from "../../../states/states";
+import { clear, print, printNewLine, prompt } from "../../../ui/console";
 
 export async function sendMessage() {
 	clear();
@@ -17,5 +17,5 @@ export async function sendMessage() {
 
 	await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
 
-	return states.MENU;
+	return "MENU" as States;
 }

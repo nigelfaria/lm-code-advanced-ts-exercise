@@ -1,13 +1,4 @@
-export const states = {
-	MENU: "MENU",
+const availableStates = ["MENU", "SEND_MESSAGE", "SHOW_POSTS", 
+						"SHOW_USERS", "BROWSE_POSTS", "ADD_USER","CABBAGE" ,"UNKNOWN"] as const;
 
-	SEND_MESSAGE: "SEND_MESSAGE",
-
-	SHOW_POSTS: "SHOW_POSTS",
-	SHOW_USERS: "SHOW_USERS",
-	BROWSE_POSTS: "BROWSE_POSTS",
-
-	ADD_USER: "ADD_USER",
-
-	UNKNOWN: "UNKNOWN",
-};
+export type States = typeof availableStates[number];
