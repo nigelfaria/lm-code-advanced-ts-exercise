@@ -1,7 +1,8 @@
 import * as express from "express";
 import { Express } from "express";
 import { getAllPosts } from "../services/posts_service";
-import { getAllUsers } from "../services/users_service";
+import { getAllUsers, addUser,deleteUser,getUser } from "../services/users_service";
+
 
 /*
 
@@ -82,7 +83,18 @@ function addAPIRoutes(app: Express) {
 		res.status(200).send(JSON.stringify(getAllUsers()));
 	});
 
-	// ❗ [1] See README
+	// this route allows the client to "add a user" to the server
+	console.log("📨  Adding add user route...");
+	apiRouter.post("/users/add", (req, res) => {
+		const { body } = req;
+
+		// we don't do anything with the message, but let's echo it back in the console
+		console.log(`👋 Received "${body.name}"`);
+		addUser(body.name);
+
+		// reply with a success boolean
+		res.status(200).send({ success: true });
+	});
 
 	apiRouter.get("/users/:id", (req, res) => {
 		res
